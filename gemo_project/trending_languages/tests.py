@@ -9,6 +9,9 @@ from django.test import Client
 class SimpleTest(unittest.TestCase):
 
     def test_url_status(self):
+        """
+        test github's url response that returns the top 100 trending repository 
+        """
         today = datetime.now()
         thirty_days_ago = (today - timedelta(days=30)).strftime("%Y-%m-%d")
         url = "https://api.github.com/search/repositories?q=created:>{0}&sort=stars&order=desc&page=1&per_page=100".format(thirty_days_ago)
